@@ -34,7 +34,7 @@ code {
   color: hsl(0, 0%, 95%);
   font-size: 1.6rem;
   letter-spacing: 2px;
-  border: 2px solid hsl(192, 80%, 50%);
+  border: 2px solid hsl(192, 80%, 40%);
   position: relative;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   transition: 0.2s all;
@@ -42,7 +42,7 @@ code {
 
 .tooltip-btn:hover {
   cursor: pointer;
-  background: hsl(192, 80%, 50%);
+  background: hsl(192, 80%, 40%);
 }
 
 .tooltip-btn::after {
