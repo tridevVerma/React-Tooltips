@@ -1,13 +1,79 @@
-body {
+*,
+*::before,
+&::after {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  background-color: hsl(0, 0%, 15%);
+  display: grid;
+  place-items: center;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.App {
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  grid-gap: 3rem;
+}
+
+.tooltip-btn {
+  padding: 1.5rem 4rem;
+  background: hsl(192, 80%, 50%);
+  color: hsl(0, 0%, 95%);
+  font-size: 1.6rem;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+.tooltip-btn:hover {
+  cursor: pointer;
+}
+
+.tooltip-btn::after {
+  visibility: hidden;
+  opacity: 0;
+  content: attr(data-content);
+  position: absolute;
+  font-size: 1.2rem;
+  padding: 1.2rem 2.5rem;
+  background: hsl(0, 0%, 5%);
+  border-radius: 2rem;
+  transition: 0.2s all;
+}
+
+.tooltip-btn[data-content="top"]::after {
+  bottom: 100%;
+  left: 0%;
+}
+
+.tooltip-btn[data-content="left"]::after {
+  top: 0%;
+  right: 100%;
+}
+
+.tooltip-btn[data-content="right"]::after {
+  bottom: 0%;
+  left: 100%;
+}
+
+.tooltip-btn[data-content="bottom"]::after {
+  top: 100%;
+  right: 0%;
+}
+
+.show::after {
+  visibility: visible;
+  opacity: 1;
 }
